@@ -1,0 +1,41 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+:where(.root) {
+  border: 1px solid eds.$color-gray-300;
+  border-radius: eds.$border-radius-default;
+  overflow: hidden;
+}
+
+:where(.table) {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+
+  thead {
+    text-transform: uppercase;
+    letter-spacing: eds.$font-letter-spacing-md;
+    background: eds.$color-bg-subtle;
+
+    tr > * {
+      padding: eds.$spacing-6 eds.$spacing-6 eds.$spacing-3;
+    }
+  }
+
+  thead > tr > th,
+  tbody > tr > th {
+    font-weight: eds.$font-weight-semi-bold;
+  }
+
+  tbody {
+    tr + tr > * {
+      border-top: 1px solid eds.$color-gray-300;
+    }
+    tr > * {
+      padding: eds.$spacing-3 eds.$spacing-6;
+    }
+  }
+
+  tbody + tbody {
+    border-top: 1px solid eds.$color-gray-300;
+  }
+}

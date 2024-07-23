@@ -1,0 +1,12 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+.root {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 6), minmax(0, 1fr));
+  grid-column-gap: eds.$spacing-9;
+  grid-row-gap: eds.$spacing-6;
+}
+
+.row {
+  grid-column: 1/-1;
+}

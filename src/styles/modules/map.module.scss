@@ -1,0 +1,18 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/modules/suspense.module.scss" as suspense;
+
+.mapContainer {
+  height: 27.5rem;
+  position: relative;
+  width: 100%;
+  border: 1px solid eds.$color-gray-200;
+  margin-top: eds.$spacing-6;
+
+  &.suspended {
+    background-color: eds.$color-gray-200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include suspense.pulse;
+  }
+}

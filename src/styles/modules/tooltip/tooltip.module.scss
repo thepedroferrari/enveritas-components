@@ -1,0 +1,145 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+.tooltip {
+  position: absolute;
+  background-color: eds.$color-white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  min-height: 100px;
+  min-width: 320px;
+  border-radius: eds.$border-radius-3;
+  border: 1px solid eds.$color-gray-200;
+  overflow: hidden;
+  pointer-events: none;
+  @include sini.shadow-natural;
+  @include sini.z-index-tooltips;
+
+  @media screen and (min-width: eds.$breakpoints-md) {
+    pointer-events: none;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.header {
+  background-color: eds.$color-navy-100;
+  padding: eds.$spacing-6;
+  border-radius: eds.$spacing-1 eds.$spacing-1 0 0;
+  @include sini.typography-heading-sans-heading-1;
+}
+
+.title {
+  margin: 0;
+  display: block;
+  @include sini.typography-heading-sans-heading-2;
+}
+
+.subtitleWrapper {
+  .subtitleValue {
+    @include sini.typography-body-sans-body-2;
+    // @include sini.typography-heading-sans-heading-1;
+    margin-right: eds.$spacing-1;
+    color: eds.$color-fg-muted;
+  }
+  .subtitleValueSecondary {
+    @include sini.typography-body-sans-body-2;
+    color: eds.$color-fg-subtle;
+  }
+
+  .subtitleDescription {
+    margin-right: eds.$spacing-1;
+    @include sini.typography-body-sans-body-2;
+    color: eds.$color-fg-muted;
+  }
+}
+
+.subtitle {
+  margin-top: eds.$spacing-1;
+  @include sini.typography-body-sans-body-2;
+  display: block;
+  color: eds.$color-fg-muted;
+}
+
+.value {
+  margin: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  @include sini.typography-heading-sans-heading-3;
+
+  svg {
+    margin-left: eds.$spacing-1;
+  }
+}
+
+.suffix {
+  @include sini.typography-heading-sans-heading-1;
+  transform: translateY(2px);
+  margin-left: 6px;
+}
+.main {
+  padding: eds.$spacing-6;
+}
+
+.pill {
+  margin-top: eds.$spacing-3;
+  padding: eds.$spacing-1 eds.$spacing-6;
+  width: fit-content;
+  border-radius: 100px;
+}
+
+.pillLabel {
+  @include sini.typography-heading-sans-heading-2;
+}
+
+.valueContainer {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+
+  .valueLabel {
+    transform: translateY(3px);
+    margin-left: eds.$spacing-3;
+    @include sini.typography-heading-sans-heading-2;
+  }
+}
+
+.subline {
+  @include sini.typography-body-sans-body-2;
+  color: eds.$color-fg-muted;
+}
+
+.infoIcon {
+  margin-left: eds.$spacing-1;
+}
+
+.callToActionWrapper {
+  margin-top: eds.$spacing-3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-right: eds.$spacing-4;
+  }
+}
+
+.callToActionLabel {
+  margin-right: eds.$spacing-3;
+  @include sini.typography-body-sans-body-2;
+  color: eds.$color-gray-800;
+}
+
+.footer {
+  padding: eds.$spacing-3 eds.$spacing-6 eds.$spacing-6 eds.$spacing-6;
+  border-top: 1px solid eds.$color-navy-100;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}

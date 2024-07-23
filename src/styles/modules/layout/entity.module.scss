@@ -1,0 +1,50 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+.header {
+  padding: eds.$spacing-5 eds.$spacing-9 0 eds.$spacing-9;
+  background-color: eds.$color-bg-subtle;
+  border-bottom: 1px solid eds.$color-gray-300;
+  display: grid;
+  grid-template-areas:
+    "headline actions"
+    "navigation .";
+}
+
+.headline {
+  @include sini.typography-heading-sans-heading-3;
+  font-size: eds.$font-size-7;
+  margin-bottom: eds.$spacing-3;
+  grid-area: headline;
+}
+
+.headline a {
+  font-weight: eds.$font-weight-normal;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.headline a:after {
+  content: "/";
+  display: inline-block;
+  position: relative;
+  left: 0.5rem;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navContainer {
+  grid-area: navigation;
+}

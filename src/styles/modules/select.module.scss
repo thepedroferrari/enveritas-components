@@ -1,0 +1,126 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+.trigger {
+  /*
+   * calculate height based on
+   * 14px font size
+   * + 1.2 line height
+   * + vertical spacing
+   */
+  height: calc(
+    round(up, calc(14px * 1.2), 1px) + 2 * eds.$input-spacing-vertical-md
+  );
+  border-radius: eds.$input-border-radius;
+  padding: eds.$spacing-3 eds.$input-spacing-horizontal-md;
+  padding-right: eds.$spacing-4;
+  border: 1px solid eds.$input-color-border-default;
+  background-color: eds.$input-color-background-default;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: eds.$spacing-2;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &.soft {
+    border-color: eds.$color-bg-accent-regular;
+    background-color: eds.$color-bg-accent-regular;
+    color: eds.$color-fg-accent;
+  }
+
+  &.round {
+    border-radius: 9999px;
+  }
+
+  &.invalid,
+  &[aria-invalid="true"] {
+    color: eds.$input-color-text-error;
+    border-color: eds.$input-color-border-error;
+  }
+
+  &:disabled {
+    opacity: 1;
+    color: eds.$input-color-text-disabled;
+    background-color: eds.$input-color-background-disabled;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    border-color: transparent;
+    outline-offset: 0;
+    outline: eds.$color-border-accent-emphasis solid 2px;
+  }
+}
+
+.icon {
+  margin-left: eds.$spacing-3;
+  height: 0.75em;
+  width: 0.75em;
+}
+
+.content {
+  background: eds.$color-white;
+  border-radius: eds.$border-radius-default;
+  @include sini.shadow-natural;
+  @include sini.z-index-modals;
+}
+
+.viewport {
+  padding: eds.$spacing-1;
+}
+
+.item {
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  padding-inline: eds.$spacing-8 eds.$spacing-6;
+  padding-block: eds.$spacing-3;
+  border-radius: eds.$border-radius-1;
+  color: eds.$color-fg-default;
+  user-select: none;
+  cursor: pointer;
+
+  &[data-highlighted], // radix
+  &[data-active-item]  // ariakit combobox
+  {
+    background: eds.$color-bg-accent-emphasis;
+    color: eds.$color-white;
+    outline: none;
+  }
+}
+
+.item[data-state="checked"] {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 100%;
+    left: eds.$spacing-1;
+    top: 0;
+    position: absolute;
+    background: eds.$color-navy-800;
+    mask-image: url("/images/icons/done_16.svg");
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: 1rem 1rem;
+  }
+
+  &[data-highlighted] {
+    &:before {
+      background: eds.$color-white;
+    }
+  }
+}
+
+.groupLabel {
+  padding-inline: eds.$spacing-8 eds.$spacing-6;
+  padding-block: eds.$spacing-3;
+  color: eds.$color-fg-default;
+  font-weight: eds.$font-weight-bold;
+}

@@ -1,0 +1,9 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+@mixin body-1 {
+  font-family: eds.$typography-body-mono-1-font-family;
+  font-size: eds.$typography-body-mono-1-font-size;
+  font-weight: eds.$typography-body-mono-1-font-weight;
+  letter-spacing: eds.$typography-body-mono-1-letter-spacing;
+  line-height: eds.$typography-body-mono-1-line-height;
+}

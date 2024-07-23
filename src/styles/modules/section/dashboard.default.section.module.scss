@@ -1,0 +1,61 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+@use "src/styles/modules/suspense.module.scss" as suspense;
+
+.headline {
+  @include sini.typography-heading-serif-heading-5;
+}
+
+.section {
+  padding-bottom: eds.$spacing-8;
+  margin-bottom: eds.$spacing-9;
+}
+
+.section header {
+  margin-bottom: eds.$spacing-6;
+}
+
+.section {
+  padding-top: eds.$spacing-1;
+  position: relative;
+
+  .sectionTitle {
+    padding-bottom: eds.$spacing-1;
+    border-bottom: 1px solid eds.$color-navy-200;
+  }
+}
+
+.sectionTitle {
+  @include sini.typography-heading-serif-heading-4;
+  margin-bottom: eds.$spacing-1;
+
+  &.suspended {
+    height: 36px;
+    width: 25%;
+    background-color: eds.$color-gray-200;
+    border-radius: eds.$border-radius-default;
+    margin-right: eds.$spacing-3;
+    @include suspense.pulse;
+  }
+}
+
+.sectionSubtitle {
+  @include sini.typography-body-serif-body-3;
+  position: relative;
+  margin-top: eds.$spacing-3;
+  margin-bottom: eds.$spacing-8;
+  color: eds.$color-gray-700;
+  max-width: 600px;
+  @include sini.z-index-content;
+
+  &.suspended {
+    background-color: eds.$color-gray-200;
+    border-radius: eds.$border-radius-default;
+    height: eds.$typography-heading-serif-4-base-font-size;
+    margin-right: eds.$spacing-3;
+    margin-top: eds.$spacing-6;
+    margin-bottom: eds.$spacing-9;
+    width: 75%;
+    @include suspense.pulse;
+  }
+}

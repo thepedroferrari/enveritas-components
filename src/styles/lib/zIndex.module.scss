@@ -1,0 +1,24 @@
+@mixin below-baseline {
+  z-index: -1;
+}
+@mixin baseline {
+  z-index: 0;
+}
+@mixin background {
+  z-index: 10;
+}
+@mixin content {
+  z-index: 100;
+}
+@mixin navigation {
+  z-index: 1000;
+}
+@mixin modals {
+  z-index: 2000;
+}
+@mixin tooltips {
+  z-index: 3000;
+}
+@mixin topmost {
+  z-index: 4000;
+}

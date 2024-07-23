@@ -1,15 +1,22 @@
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
 import babel from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
+import typescript from "@rollup/plugin-typescript";
+import svgr from '@svgr/rollup';
+import path from 'path';
+import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
+import postcssNormalize from 'postcss-normalize';
+import postcssPresetEnv from 'postcss-preset-env';
+import { defineConfig } from 'rollup';
 import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import scss from "rollup-plugin-scss";
+import postcss from 'rollup-plugin-postcss';
 
 import packageJson from "./package.json" with { type: "json" };
 
-export default [
+
+export default defineConfig([
   {
     input: "src/index.ts",
     output: [
@@ -35,11 +42,34 @@ export default [
         presets: ["@babel/preset-env", "@babel/preset-react"],
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
-      scss({
-        output: "dist/styles.css",
-        outputStyle: "compressed",
-        sass: await import("sass"),
+      postcss({
+        extract: true,
+        minimize: true,
+        sourceMap: true,
+        extensions: ['.scss', '.css'],
+        plugins: [
+          postcssFlexbugsFixes,
+          postcssPresetEnv({
+            autoprefixer: {
+              flexbox: 'no-2009',
+            },
+            stage: 3,
+          }),
+          postcssNormalize(),
+        ],
+        use: [
+          [
+            'sass',
+            {
+              includePaths: [
+                path.resolve('node_modules'),
+                path.resolve('src'),
+              ],
+            },
+          ],
+        ],
       }),
+      svgr(),
       terser(),
     ],
     external: ["react", "react-dom"],
@@ -50,4 +80,4 @@ export default [
     plugins: [dts()],
     external: [/\.scss$/],
   },
-];
+]);

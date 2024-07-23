@@ -1,0 +1,14 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+.root {
+  border: 1px solid eds.$color-gray-300;
+  border-radius: eds.$border-radius-default;
+
+  li {
+    padding: eds.$spacing-6;
+  }
+
+  li + li {
+    border-top: 1px solid eds.$color-gray-300;
+  }
+}

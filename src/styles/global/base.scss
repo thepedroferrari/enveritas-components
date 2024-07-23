@@ -1,0 +1,237 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+.mapboxgl-ctrl-bottom-left {
+  left: auto !important;
+  top: eds.$spacing-3;
+  right: eds.$spacing-3;
+}
+
+.mapboxgl-ctrl-attrib-inner :nth-child(n + 1):nth-child(-n + 2) {
+  display: none;
+}
+
+.mapboxgl-ctrl-attrib {
+  color: white;
+}
+
+.mapboxgl-ctrl-attrib-inner a {
+  color: #2a3c4f !important;
+}
+
+div.sentry-error-embed-wrapper {
+  @include sini.z-index-topmost;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: eds.$color-border-accent-emphasis solid 2px;
+  outline-offset: 1px;
+  isolation: isolate;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: eds.$color-border-accent-emphasis solid 2px;
+  outline-offset: 1px;
+}
+
+body {
+  color: eds.$color-fg-default;
+  font-size: eds.$font-size-3;
+  font-family: eds.$font-family-sans;
+  font-weight: eds.$font-weight-normal;
+  background-color: eds.$color-bg-default;
+  line-height: 1.5;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  line-height: 1.15;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: eds.$color-border-accent-emphasis solid 2px;
+  outline-offset: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: eds.$color-fg-accent;
+  cursor: pointer;
+  text-underline-offset: 25%;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  @include sini.typography-heading-sans-heading-6;
+}
+
+h2 {
+  @include sini.typography-heading-sans-heading-5;
+}
+
+h3 {
+  @include sini.typography-heading-sans-heading-4;
+}
+
+h4 {
+  @include sini.typography-heading-sans-heading-3;
+}
+
+h5 {
+  @include sini.typography-heading-sans-heading-2;
+}
+
+h6 {
+  @include sini.typography-heading-sans-heading-1;
+}
+
+p {
+  margin: 0;
+}
+
+b {
+  font-weight: eds.$font-weight-bold;
+}
+
+figure {
+  margin: 0;
+}
+
+dl {
+  margin: 0;
+}
+
+dd {
+  margin: 0;
+}
+
+pre {
+  margin: 0;
+}
+
+address {
+  white-space: pre;
+  font-style: normal;
+}
+
+input,
+textarea,
+select {
+  color: eds.$color-fg-default;
+  border-radius: eds.$input-border-radius;
+  padding: eds.$input-spacing-vertical-md eds.$input-spacing-horizontal-md;
+  border: 1px solid eds.$input-color-border-default;
+  background-color: eds.$input-color-background-default;
+}
+
+textarea {
+  line-height: 1.5;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("/images/icons/fill-unfold-more_16.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: calc(100% - eds.$spacing-3) center;
+  background-repeat: no-repeat;
+  padding-right: (2 * eds.$input-spacing-horizontal-md) + 0.75rem;
+  text-overflow: ellipsis;
+}
+
+input::placeholder {
+  color: eds.$input-color-text-placeholder;
+}
+
+textarea::placeholder {
+  color: eds.$input-color-text-placeholder;
+}
+
+input:focus-visible {
+  border-color: transparent;
+  outline-offset: 0;
+}
+textarea:focus-visible {
+  border-color: transparent;
+  outline-offset: 0;
+}
+select:focus-visible {
+  border-color: transparent;
+  outline-offset: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  color: eds.$input-color-text-error;
+  border-color: eds.$input-color-border-error;
+}
+
+input[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus,
+select[aria-invalid="true"]:focus {
+  border: 1px solid transparent;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 1;
+  color: eds.$input-color-text-disabled;
+  background-color: eds.$input-color-background-disabled;
+}
+
+fieldset {
+  border: 1px solid eds.$color-gray-300;
+  margin: eds.$spacing-1 0;
+  padding: eds.$spacing-3;
+}
+
+legend {
+  font-weight: eds.$font-weight-medium;
+}

@@ -1,0 +1,49 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+input[type="checkbox"] {
+  --checkbox-size: 1.125em;
+  cursor: pointer;
+  appearance: none;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  display: inline-grid;
+  place-content: center;
+  border: none;
+  background-color: transparent;
+  outline-offset: 1px;
+  color: eds.$color-fg-default;
+}
+
+input[type="checkbox"]:disabled::before {
+  background-color: eds.$color-bg-subtle;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  background-color: eds.$color-bg-default;
+  border: 1px solid eds.$input-color-border-default;
+  border-radius: eds.$border-radius-default;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="checkbox"]:indeterminate::before {
+  background-color: eds.$color-bg-accent-emphasis;
+  border-color: eds.$color-border-accent-emphasis;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="checkbox"]:checked::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' fill='none' viewBox='0 0 10 8'%3E%3Cpath fill='%23ffffff' d='M3.58 7.262a.75.75 0 0 1-.53-.22L.22 4.212a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3L8.72.312c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-5.67 5.67a.75.75 0 0 1-.53.22Z'/%3E%3C/svg%3E");
+}
+
+input[type="checkbox"]:indeterminate::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L9 4' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}
+
+input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

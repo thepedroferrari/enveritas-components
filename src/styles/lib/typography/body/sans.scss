@@ -1,0 +1,16 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+@mixin body-1 {
+  font-family: eds.$typography-body-sans-1-font-family;
+  font-size: eds.$typography-body-sans-1-font-size;
+  font-weight: eds.$typography-body-sans-1-font-weight;
+  letter-spacing: eds.$typography-body-sans-1-letter-spacing;
+  line-height: eds.$typography-body-sans-1-line-height;
+}
+
+@mixin body-2 {
+  font-family: eds.$typography-body-sans-2-font-family;
+  font-size: eds.$typography-body-sans-2-font-size;
+  font-weight: eds.$typography-body-sans-2-font-weight;
+  line-height: eds.$typography-body-sans-2-line-height;
+}

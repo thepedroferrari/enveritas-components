@@ -1,0 +1,18 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+.root + .root {
+  padding-top: eds.$spacing-8;
+  border-top: 1px solid eds.$color-gray-300;
+  margin-top: eds.$spacing-8;
+}
+
+.header {
+  margin-bottom: eds.$spacing-3;
+}
+
+.title {
+  font-size: eds.$font-size-4;
+}
+
+.subtitle {
+}

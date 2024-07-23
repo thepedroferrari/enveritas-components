@@ -1,0 +1,6 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+.paper {
+  background-color: eds.$color-white;
+  box-shadow: eds.$box-shadow-sm;
+}

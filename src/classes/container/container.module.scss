@@ -1,0 +1,23 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+.root {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md {
+  width: eds.$breakpoints-md;
+}
+
+.lg {
+  width: eds.$breakpoints-lg;
+}
+
+.xlg {
+  width: eds.$breakpoints-xlg;
+}
+
+.max {
+  width: eds.$breakpoints-max;
+}

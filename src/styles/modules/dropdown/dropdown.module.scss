@@ -1,0 +1,95 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+.dropdownContent {
+  background-color: eds.$color-white;
+  border: 1px solid eds.$color-gray-200;
+  border-radius: eds.$border-radius-default;
+  box-shadow: eds.$box-shadow-md;
+  font-size: eds.$font-size-3;
+  @include sini.z-index-modals;
+}
+
+.dropdownItemsContainer {
+  padding: eds.$spacing-1;
+}
+
+.dropdownItemsContainer[data-side="bottom"] {
+  @include sini.animation-fade-in-from-bottom;
+}
+
+.dropdownItemsContainer[data-side="left"] {
+  @include sini.animation-fade-in-from-left;
+}
+
+.dropdownItemsContainer[data-side="right"] {
+  @include sini.animation-fade-in-from-right;
+}
+
+.dropdownItemsContainer[data-side="top"] {
+  @include sini.animation-fade-in-from-top;
+}
+
+.dropdownItem,
+.groupLabel {
+  padding-inline: eds.$spacing-4;
+  padding-block: eds.$spacing-1;
+}
+
+.dropdownItem {
+  border-radius: eds.$border-radius-default;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: eds.$spacing-1;
+  }
+}
+
+.dropdownItem + .dropdownItem {
+  margin-top: eds.$spacing-1;
+}
+
+a.dropdownItem {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.dropdownItem:hover {
+  background-color: eds.$color-gray-200;
+  outline: none;
+  cursor: pointer;
+}
+
+.dropdownItemIcon {
+  margin-right: eds.$spacing-1;
+}
+
+.separator {
+  border-top: 1px solid eds.$color-gray-200;
+  margin-block: eds.$spacing-1;
+}
+
+.groupLabel {
+  font-weight: eds.$font-weight-semi-bold;
+}
+
+.dropdownItem[data-state="checked"] {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 100%;
+    left: eds.$spacing-1;
+    top: 0;
+    position: absolute;
+    background: eds.$color-navy-800;
+    mask-image: url("/images/icons/done_16.svg");
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: 1rem 1rem;
+  }
+}

@@ -1,0 +1,159 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+@mixin typography-sm {
+  font-family: eds.$button-typography-sm-font-family;
+  font-weight: eds.$button-typography-sm-font-weight;
+  font-size: eds.$button-typography-sm-font-size;
+  line-height: eds.$button-typography-sm-line-height;
+  letter-spacing: eds.$button-typography-sm-letter-spacing;
+}
+
+@mixin typography-md {
+  font-family: eds.$button-typography-md-font-family;
+  font-weight: eds.$button-typography-md-font-weight;
+  font-size: eds.$button-typography-md-font-size;
+  line-height: eds.$button-typography-md-line-height;
+  letter-spacing: eds.$button-typography-md-letter-spacing;
+}
+
+@mixin typography-lg {
+  font-family: eds.$button-typography-lg-font-family;
+  font-weight: eds.$button-typography-lg-font-weight;
+  font-size: eds.$button-typography-lg-font-size;
+  line-height: eds.$button-typography-lg-line-height;
+}
+
+.base {
+  width: fit-content;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: eds.$button-border-radius;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: var(--background-color--default);
+  border: 1px solid var(--border-color);
+  color: var(--text-color--default);
+}
+
+.base:hover {
+  background-color: var(
+    --background-color--hover,
+    var(--background-color-default)
+  );
+  color: var(--text-color--hover, var(--text-color--default));
+}
+
+.base:disabled {
+  cursor: not-allowed;
+  background-color: var(
+    --background-color--disabled,
+    var(--background-color-default)
+  );
+
+  color: var(--text-color--disabled, var(--text-color--default));
+}
+
+.base:active,
+.base[aria-expanded="true"] {
+  background-color: var(
+    --background-color--active,
+    var(--background-color-default)
+  );
+  color: var(--text-color--active, var(--text-color--hover));
+}
+
+.icon {
+  &.small {
+    padding: eds.$spacing-2;
+  }
+
+  &.medium {
+    padding: eds.$spacing-3;
+  }
+
+  &.large {
+    padding: eds.$spacing-4;
+  }
+
+  &.medium svg,
+  &.small svg,
+  &.large svg {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+a.button,
+a.icon {
+  text-decoration: none;
+}
+
+.primary {
+  --background-color--default: #{eds.$button-color-background-primary-default};
+  --background-color--hover: #{eds.$button-color-background-primary-hover};
+  --background-color--active: #{eds.$button-color-background-primary-active};
+  --background-color--disabled: #{eds.$button-color-background-primary-disabled};
+  --border-color: #{eds.$button-color-border-primary};
+  --text-color--default: #{eds.$button-color-text-primary-default};
+  --text-color--hover: #{eds.$button-color-text-primary-default};
+}
+
+.secondary {
+  --background-color--default: #{eds.$button-color-background-secondary-default};
+  --background-color--hover: #{eds.$button-color-background-secondary-hover};
+  --background-color--active: #{eds.$button-color-background-secondary-active};
+  --background-color--disabled: #{eds.$button-color-background-secondary-disabled};
+  --border-color: #{eds.$button-color-border-secondary};
+  --text-color--default: #{eds.$button-color-text-secondary-default};
+  --text-color--hover: #{eds.$button-color-text-secondary-default};
+  --text-color--disabled: #{eds.$button-color-text-secondary-disabled};
+}
+
+.danger {
+  --background-color--default: #{eds.$button-color-background-danger-default};
+  --background-color--hover: #{eds.$button-color-background-danger-hover};
+  --background-color--active: #{eds.$button-color-background-danger-active};
+  --background-color--disabled: #{eds.$button-color-background-danger-disabled};
+  --border-color: #{eds.$button-color-border-destructive};
+  --text-color--default: #{eds.$button-color-text-danger-default};
+  --text-color--hover: #{eds.$button-color-text-danger-hover};
+  --text-color--disabled: #{eds.$button-color-text-danger-disabled};
+}
+
+.ghost {
+  --background-color--default: #{eds.$button-color-background-ghost-default};
+  --background-color--hover: #{eds.$button-color-background-ghost-hover};
+  --background-color--active: #{eds.$button-color-background-ghost-active};
+  --background-color--disabled: #{eds.$button-color-background-ghost-disabled};
+  --text-color--default: #{eds.$button-color-text-ghost-default};
+  --text-color--disabled: #{eds.$button-color-text-ghost-disabled};
+  --border-color: #{eds.$button-color-background-ghost-default};
+}
+
+.inactive {
+  --background-color--default: #{eds.$button-color-background-inactive-default};
+  --background-color--hover: #{eds.$button-color-background-inactive-default};
+  --background-color--active: #{eds.$button-color-background-inactive-default};
+  --background-color--disabled: #{eds.$button-color-background-inactive-default};
+  --text-color: #{eds.$button-color-text-inactive-default};
+  --border-color: #{eds.$button-color-background-inactive-default};
+}
+
+.small:not(.icon) {
+  padding: eds.$button-spacing-vertical-sm eds.$button-spacing-horizontal-sm;
+  @include typography-sm;
+}
+
+.medium:not(.icon) {
+  padding: eds.$button-spacing-vertical-md eds.$button-spacing-horizontal-md;
+  @include typography-md;
+}
+
+.large:not(.icon) {
+  padding: eds.$button-spacing-vertical-lg eds.$button-spacing-horizontal-lg;
+  @include typography-lg;
+}

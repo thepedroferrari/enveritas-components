@@ -1,0 +1,104 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(eds.$color-bg-emphasis, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include sini.z-index-modals;
+  @include sini.animation-fade-in;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  border-radius: eds.$border-radius-default;
+  overflow: hidden;
+  background: eds.$color-bg-default;
+  max-height: 100dvh;
+
+  @include sini.animation-fade-in-from-center;
+  @include sini.shadow-natural;
+
+  &.small {
+    width: 20rem;
+    max-width: min(100dvw, 20rem);
+    max-height: min(100dvh, 32rem);
+  }
+
+  &.medium-portrait {
+    width: 30rem;
+    max-width: min(100dvw, 30rem);
+    max-height: min(100dvh, 40rem);
+  }
+
+  &.medium-landscape {
+    width: 30rem;
+    max-width: min(100dvw, 30rem);
+    max-height: min(100dvh, 32rem);
+  }
+
+  &.large {
+    width: 42rem;
+    max-width: min(100dvw, 42rem);
+    max-height: min(100dvh, 30rem);
+  }
+
+  &.xlarge {
+    width: 66rem;
+    max-width: min(100dvw, 66rem);
+    max-height: min(100dvh, 40rem);
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title close"
+    "description .";
+
+  padding: eds.$spacing-8 eds.$spacing-6 eds.$spacing-6 eds.$spacing-8;
+  border-bottom: 1px solid eds.$color-border-muted;
+}
+
+.body {
+  overflow-y: auto;
+  padding: eds.$spacing-8;
+}
+
+.footer {
+  padding: eds.$spacing-8;
+  display: flex;
+  justify-content: flex-end;
+  gap: eds.$spacing-2;
+  border-top: 1px solid eds.$color-border-muted;
+}
+
+.title {
+  font-size: eds.$font-size-5;
+  font-weight: eds.$font-weight-medium;
+  line-height: 135%;
+  padding-top: eds.$spacing-2; // visual balancing
+
+  &.large {
+    font-size: eds.$font-size-7;
+    font-weight: eds.$font-weight-normal;
+  }
+}
+
+.description {
+  grid-area: description;
+}
+
+.close {
+  grid-area: close;
+}

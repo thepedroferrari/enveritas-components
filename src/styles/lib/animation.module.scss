@@ -1,0 +1,56 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "sass:map";
+
+$transitions: (
+  "fast": eds.$transition-fast,
+  "medium": eds.$transition-medium,
+  "slow": eds.$transition-slow,
+);
+
+$default-delay: "medium";
+
+@mixin transition($delay: $default-delay) {
+  animation: map.get($transitions, $delay);
+}
+
+@mixin fade-in($delay: $default-delay) {
+  @include transition($delay);
+  :global {
+    animation-name: fade-in;
+  }
+}
+
+@mixin fade-in-from-top($delay: $default-delay) {
+  @include transition($delay);
+  :global {
+    animation-name: fade-in-from-top;
+  }
+}
+
+@mixin fade-in-from-bottom($delay: $default-delay) {
+  @include transition($delay);
+  :global {
+    animation-name: fade-in-from-bottom;
+  }
+}
+
+@mixin fade-in-from-left($delay: $default-delay) {
+  @include transition($delay);
+  :global {
+    animation-name: fade-in-from-left;
+  }
+}
+
+@mixin fade-in-from-right($delay: $default-delay) {
+  @include transition($delay);
+  :global {
+    animation-name: fade-in-from-right;
+  }
+}
+
+@mixin fade-in-from-center($delay: $default-delay) {
+  @include transition($delay);
+  :global {
+    animation-name: fade-in-from-center;
+  }
+}

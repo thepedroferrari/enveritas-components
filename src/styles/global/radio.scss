@@ -1,0 +1,37 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+input[type="radio"] {
+  cursor: pointer;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-content: center;
+  border: 1px solid eds.$color-gray-500;
+  border-radius: 999px;
+  background-color: eds.$color-white;
+  outline-offset: 1px;
+}
+
+input[type="radio"]:checked {
+  background-color: eds.$color-bg-accent-emphasis;
+  border-color: eds.$color-border-accent-emphasis;
+}
+
+input[type="radio"]:checked:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background-color: eds.$color-bg-default;
+}
+
+input[type="radio"]:disabled {
+  cursor: not-allowed;
+  background-color: eds.$color-gray-200;
+  border-color: eds.$color-gray-400;
+}
+
+input[type="radio"]:disabled:checked::before {
+  background-color: eds.$color-gray-400;
+}

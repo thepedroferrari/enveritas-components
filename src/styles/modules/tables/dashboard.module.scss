@@ -1,0 +1,249 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/lib" as sini;
+
+.root {
+  margin-top: eds.$spacing-6;
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    height: eds.$spacing-10;
+  }
+
+  th {
+    color: eds.$color-gray-600;
+    border-bottom: 1px solid eds.$color-gray-300;
+  }
+
+  td {
+    border-bottom: 1px solid eds.$color-gray-200;
+  }
+
+  & > *:last-child > tr:last-of-type > td {
+    border-bottom: 0;
+  }
+
+  th {
+    text-align: start;
+  }
+
+  .right {
+    text-align: end;
+
+    button {
+      text-align: end;
+    }
+  }
+
+  th.right button {
+    position: relative;
+    right: calc(eds.$spacing-3 * -1);
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .name {
+    text-align: start;
+  }
+
+  .left {
+    text-align: start;
+
+    button {
+      text-align: start;
+    }
+  }
+
+  .created_on {
+    text-align: right;
+    width: 40%;
+  }
+
+  td.link {
+    text-decoration: underline;
+    cursor: pointer;
+    text-underline-offset: 25%;
+
+    a {
+      color: eds.$color-fg-default;
+      &:hover {
+        color: eds.$color-gray-600;
+      }
+    }
+  }
+
+  .link {
+    text-decoration: underline;
+    cursor: pointer;
+    text-underline-offset: 25%;
+    line-height: 160%;
+    &:hover {
+      color: eds.$color-gray-600;
+    }
+  }
+
+  .columnLabel {
+    @include sini.typography-caption-sans-caption-2;
+    text-transform: uppercase;
+    letter-spacing: eds.$font-letter-spacing-lg;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .columnButton {
+    width: 100%;
+    padding: eds.$button-spacing-vertical-md eds.$spacing-1;
+    border-radius: none;
+    text-align: inherit;
+    display: flex;
+
+    &.right {
+      justify-content: end;
+    }
+
+    &:hover {
+      background-color: eds.$color-gray-200;
+    }
+  }
+
+  .lastUpdated {
+    @include sini.typography-caption-sans-caption-2;
+    color: eds.$color-gray-500;
+  }
+}
+
+.tabularNumber {
+  @include sini.typography-body-sans-body-2;
+  font-feature-settings: "tnum";
+}
+
+.meterCell {
+  padding-inline: eds.$spacing-6 eds.$spacing-3;
+}
+
+.meterLabelCell {
+  white-space: nowrap;
+  width: 1%;
+}
+
+@mixin meter-bar {
+  background: none;
+  background-color: eds.$color-purple-200;
+  height: 0.75rem;
+  border: none;
+  border-radius: 0;
+}
+
+@mixin meter-value {
+  background: none;
+  background-color: eds.$color-purple-700;
+  height: 100%;
+}
+
+.progressBar,
+.meterGauge {
+  @include meter-bar;
+
+  overflow: hidden;
+  width: 100%;
+  margin-right: eds.$spacing-6;
+  vertical-align: middle;
+  text-align: left;
+  display: inline-block;
+}
+
+.meterGauge > span {
+  @include meter-value;
+  display: block;
+  text-indent: -9999em;
+}
+
+.progressBar::-moz-meter-bar {
+  @include meter-value;
+}
+
+.progressBar::-webkit-meter-bar {
+  @include meter-bar;
+}
+
+.progressBar::-webkit-meter-optimum-value {
+  @include meter-value;
+}
+
+.progressBar::-webkit-meter-suboptimum-value {
+  @include meter-value;
+}
+
+.progressBar::-webkit-meter-even-less-good-value {
+  @include meter-value;
+}
+
+/* = PASS (CYAN) = */
+@mixin pass {
+  background-color: eds.$color-bg-success-emphasis;
+}
+
+.progressBar.pass::-moz-meter-bar {
+  @include pass;
+}
+
+.progressBar.pass::-webkit-meter-optimum-value {
+  @include pass;
+}
+
+.progressBar.pass::-webkit-meter-suboptimum-value {
+  @include pass;
+}
+
+.progressBar.pass::-webkit-meter-even-less-good-value {
+  @include pass;
+}
+
+/* = FAIL (ORANGE) = */
+
+@mixin fail {
+  background-color: eds.$color-bg-danger-emphasis;
+}
+
+.progressBar.fail {
+  @include fail;
+}
+
+.progressBar.fail::-moz-meter-bar {
+  @include fail;
+}
+
+.progressBar.fail::-webkit-meter-optimum-value {
+  @include fail;
+}
+
+.progressBar.fail::-webkit-meter-suboptimum-value {
+  @include fail;
+}
+
+.progressBar.fail::-webkit-meter-even-less-good-value {
+  @include fail;
+}
+
+.tableOptions {
+  position: relative;
+  display: grid;
+  grid-column-gap: 0 eds.$spacing-3;
+  grid-template-columns: repeat(2, 50%);
+  grid-auto-columns: auto;
+  padding-top: eds.$spacing-6;
+  border-top: 1px solid eds.$color-gray-200;
+  @include sini.z-index-content;
+
+  .startAligned {
+    grid-column: 1 / 2;
+    justify-self: self-start;
+  }
+
+  .endAligned {
+    grid-column: 2 / 2;
+    justify-self: self-end;
+  }
+}

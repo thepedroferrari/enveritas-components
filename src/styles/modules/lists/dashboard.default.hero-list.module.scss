@@ -1,0 +1,42 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+@use "src/styles/modules/suspense.module.scss" as suspense;
+
+@mixin grid-right-border {
+  &:not(:last-of-type) {
+    padding-right: eds.$spacing-6;
+    margin-right: eds.$spacing-8;
+  }
+}
+
+.root {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+
+  dt {
+    // border-top: 1px solid eds.$color-gray-300;
+    padding-top: eds.$spacing-3;
+    margin-right: eds.$spacing-6;
+    display: flex;
+    align-items: baseline;
+    line-height: 120%;
+
+    span {
+      font-size: eds.$font-size-9;
+      font-weight: eds.$font-weight-normal;
+
+      &.suspended {
+        height: eds.$spacing-9;
+        width: eds.$spacing-10;
+        border-radius: eds.$border-radius-default;
+        @include suspense.pulse;
+      }
+    }
+  }
+
+  dd {
+    margin-top: eds.$spacing-1;
+    line-height: 1.2;
+    @include grid-right-border;
+  }
+}

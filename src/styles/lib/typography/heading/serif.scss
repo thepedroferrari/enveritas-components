@@ -1,0 +1,98 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+@mixin heading-1 {
+  font-family: eds.$typography-heading-serif-1-font-family;
+  font-size: eds.$typography-heading-serif-1-font-size;
+  font-weight: eds.$typography-heading-serif-1-font-weight;
+  line-height: eds.$typography-heading-serif-1-line-height;
+  letter-spacing: eds.$typography-heading-serif-1-letter-spacing;
+}
+
+@mixin heading-2 {
+  font-family: eds.$typography-heading-serif-2-font-family;
+  font-size: eds.$typography-heading-serif-2-font-size;
+  font-weight: eds.$typography-heading-serif-2-font-weight;
+  line-height: eds.$typography-heading-serif-2-line-height;
+}
+
+@mixin heading-3 {
+  font-family: eds.$typography-heading-serif-3-font-family;
+  font-size: eds.$typography-heading-serif-3-font-size;
+  font-weight: eds.$typography-heading-serif-3-font-weight;
+  line-height: eds.$typography-heading-serif-3-line-height;
+}
+
+@mixin heading-4 {
+  font-family: eds.$typography-heading-serif-4-base-font-family;
+  font-size: eds.$typography-heading-serif-4-base-font-size;
+  font-weight: eds.$typography-heading-serif-4-base-font-weight;
+  line-height: eds.$typography-heading-serif-4-base-line-height;
+
+  @media screen and (min-width: eds.$breakpoints-xlg) {
+    font-size: eds.$typography-heading-serif-4-xlg-font-size;
+    font-weight: eds.$typography-heading-serif-4-xlg-font-weight;
+    line-height: eds.$typography-heading-serif-4-xlg-line-height;
+  }
+}
+
+@mixin heading-5 {
+  font-family: eds.$typography-heading-serif-5-base-font-family;
+  font-size: eds.$typography-heading-serif-5-base-font-size;
+  font-weight: eds.$typography-heading-serif-5-base-font-weight;
+  line-height: eds.$typography-heading-serif-5-base-line-height;
+
+  @media screen and (min-width: eds.$breakpoints-md) {
+    font-size: eds.$typography-heading-serif-5-md-font-size;
+    font-weight: eds.$typography-heading-serif-5-md-font-weight;
+    line-height: eds.$typography-heading-serif-5-md-line-height;
+  }
+
+  @media screen and (min-width: eds.$breakpoints-lg) {
+    font-size: eds.$typography-heading-serif-5-lg-font-size;
+    font-weight: eds.$typography-heading-serif-5-lg-font-weight;
+    line-height: eds.$typography-heading-serif-5-lg-line-height;
+  }
+
+  @media screen and (min-width: eds.$breakpoints-xlg) {
+    font-size: eds.$typography-heading-serif-5-xlg-font-size;
+    font-weight: eds.$typography-heading-serif-5-xlg-font-weight;
+    line-height: eds.$typography-heading-serif-5-xlg-line-height;
+  }
+
+  @media screen and (min-width: eds.$breakpoints-max) {
+    font-size: eds.$typography-heading-serif-5-max-font-size;
+    font-weight: eds.$typography-heading-serif-5-max-font-weight;
+    line-height: eds.$typography-heading-serif-5-max-line-height;
+  }
+}
+
+@mixin heading-6 {
+  font-family: eds.$typography-heading-serif-6-base-font-family;
+  font-size: eds.$typography-heading-serif-6-base-font-size;
+  font-weight: eds.$typography-heading-serif-6-base-font-weight;
+  line-height: eds.$typography-heading-serif-6-base-line-height;
+
+  @media screen and (min-width: eds.$breakpoints-md) {
+    font-size: eds.$typography-heading-serif-6-md-font-size;
+    font-weight: eds.$typography-heading-serif-6-md-font-weight;
+    line-height: eds.$typography-heading-serif-6-md-line-height;
+  }
+
+  @media screen and (min-width: eds.$breakpoints-lg) {
+    font-size: eds.$typography-heading-serif-6-lg-font-size;
+    font-weight: eds.$typography-heading-serif-6-lg-font-weight;
+    line-height: eds.$typography-heading-serif-6-lg-line-height;
+  }
+
+  @media screen and (min-width: eds.$breakpoints-xlg) {
+    font-size: eds.$typography-heading-serif-6-xlg-font-size;
+    font-weight: eds.$typography-heading-serif-6-xlg-font-weight;
+    line-height: eds.$typography-heading-serif-6-xlg-line-height;
+  }
+
+  @media screen and (min-width: eds.$breakpoints-max) {
+    font-size: eds.$typography-heading-serif-6-max-font-size;
+    font-weight: eds.$typography-heading-serif-6-max-font-weight;
+    line-height: eds.$typography-heading-serif-6-max-line-height;
+  }
+}

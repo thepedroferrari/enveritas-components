@@ -1,0 +1,25 @@
+@use "node_modules/@enveritas/design-tokens/scss/index" as eds;
+
+@mixin caption-1 {
+  font-family: eds.$typography-caption-sans-1-font-family;
+  font-size: eds.$typography-caption-sans-1-font-size;
+  font-weight: eds.$typography-caption-sans-1-font-weight;
+  letter-spacing: eds.$typography-caption-sans-1-letter-spacing;
+  line-height: eds.$typography-caption-sans-1-line-height;
+}
+
+@mixin caption-2 {
+  font-family: eds.$typography-caption-sans-2-font-family;
+  font-size: eds.$typography-caption-sans-2-font-size;
+  font-weight: eds.$typography-caption-sans-2-font-weight;
+  letter-spacing: eds.$typography-caption-sans-2-letter-spacing;
+  line-height: eds.$typography-caption-sans-2-line-height;
+}
+
+@mixin caption-3 {
+  font-family: eds.$typography-caption-sans-3-font-family;
+  font-size: eds.$typography-caption-sans-3-font-size;
+  font-weight: eds.$typography-caption-sans-3-font-weight;
+  letter-spacing: eds.$typography-caption-sans-3-letter-spacing;
+  line-height: eds.$typography-caption-sans-3-line-height;
+}
